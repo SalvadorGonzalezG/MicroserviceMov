@@ -13,7 +13,6 @@ public class GeneroRepository implements IGeneroRepository	{
 	
 	@PersistenceContext
 	public EntityManager entityManager;
-	
 	@Override
 	@Transactional
 	public void save(Genero genero) {
@@ -25,7 +24,5 @@ public class GeneroRepository implements IGeneroRepository	{
 	public Genero findById(Long id) {
 		return entityManager.find(Genero.class, id);
 	}
-	
-
 	
 }

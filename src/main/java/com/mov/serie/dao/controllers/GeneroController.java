@@ -21,6 +21,7 @@ public class GeneroController {
 	}
 	
 	// 2 acciones guardar & Buscar por id
+	
 	@PostMapping("/parameter")
 	public Long guardar(@RequestParam String nombre) {
 		Genero genero = new Genero();
