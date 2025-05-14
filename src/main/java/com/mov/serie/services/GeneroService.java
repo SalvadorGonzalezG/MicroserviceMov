@@ -23,17 +23,18 @@ public class GeneroService implements IGeneroService{
 	
 	@Override
 	public Genero findById(Long id) {
-		return null;
+		//en caso de que no lo encuentre devuelve null
+		return generoRepository.findById(id).orElse(null);
 	}
 	
 	@Override
 	public void delete(Long id) {
-		
+		generoRepository.deleteById(id);
 	}
 	
 	@Override 
 	public List<Genero> findAll(){
-		return null;
+		return (List<Genero>) generoRepository.findAll();
 	}
 	
 	

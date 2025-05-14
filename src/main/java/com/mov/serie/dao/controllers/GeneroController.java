@@ -7,17 +7,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mov.serie.dao.IGeneroRepository;
 import com.mov.serie.models.Genero;
+import com.mov.serie.services.IGeneroService;
 
 @RestController
 public class GeneroController {
-	
 	@Autowired
-	private IGeneroRepository generoRepository;
+	private IGeneroService generoService;
 	
-	public GeneroController (IGeneroRepository generoRepository) {
-		this.generoRepository = generoRepository;
+	public GeneroController (IGeneroService generoService) {
+		this.generoService = generoService;
 	}
 	
 	// 2 acciones guardar & Buscar por id
@@ -26,12 +25,12 @@ public class GeneroController {
 	public Long guardar(@RequestParam String nombre) {
 		Genero genero = new Genero();
 		genero.setNombre(nombre);
-		generoRepository.save(genero);
+		generoService.save(genero);
 		return genero.getId();
 	}
 	
 	@GetMapping("/parameter/{id}")
 	public String buscarPorId(@PathVariable Long id) {
-		return generoRepository.findById(id).getNombre();
+		return generoService.findById(id).getNombre();
 	}
 }
