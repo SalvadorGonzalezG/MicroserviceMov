@@ -1,5 +1,6 @@
 package com.mov.serie.services;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ public class GeneroService implements IGeneroService{
 	// implementacion de los metodos de la interfaz IGeneroService
 	@Override
 	public void save(Genero genero) {
+		genero.setFechaCreacion(LocalDateTime.now());
 		generoRepository.save(genero);
 	}
 	

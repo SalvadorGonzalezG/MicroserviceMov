@@ -1,5 +1,7 @@
 package com.mov.serie.dao.controllers;
 
+import java.time.LocalDateTime;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,6 +27,7 @@ public class GeneroController {
 	public Long guardar(@RequestParam String nombre) {
 		Genero genero = new Genero();
 		genero.setNombre(nombre);
+		genero.setFechaCreacion(LocalDateTime.now());
 		generoService.save(genero);
 		return genero.getId();
 	}

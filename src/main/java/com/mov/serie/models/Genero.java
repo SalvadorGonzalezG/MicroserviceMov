@@ -1,6 +1,7 @@
 package com.mov.serie.models;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,6 +19,15 @@ public class Genero implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	private String nombre;
+	private LocalDateTime fechaCreacion;
+	
+	public LocalDateTime getFechaCreacion() {
+		return fechaCreacion;
+	}
+	
+	public void setFechaCreacion(LocalDateTime fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
+	}
 	
 	public Long getId() {
 		return id;
